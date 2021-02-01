@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Book shop</title>
+</head>
+
+<body class="blur" onload="onInit()">
+    <h1>Book shop</h1>
+    <table>
+        <thead>
+            <tr>
+                <td onclick="onSortBy('id')">ID</td>
+                <td onclick="onSortBy('title')">Title</td>
+                <td onclick="onSortBy('price')">Price</td>
+                <td onclick="onSortBy('rate')">Rating</td>
+                <td colspan="3">Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <button onclick="onLoadForm()">Create new book</button>
+    <section>
+        <form onsubmit="onAddBook(event)">
+            <h2>Add a book to your list</h2>
+            <h3>Book Name</h3>
+            <input type="text" placeholder="Name of the book" name="bookName" required />
+            <h3>Price</h3>
+            <input type="number" placeholder="price" name="price" required />
+            </br>
+            <button>ADD</button>
+            <button onclick="onCloseForm()">CANCEL</button>
+        </form>
+    </section>
+    <div class="modal">
+        <h3></h3>
+        <h4></h4>
+        <img src="">
+        <p class="description"></p>
+        <button onclick="onCloseModal()">Close book info</button>
+        Rate the book:
+        <div class="buttons">
+            <button onclick="raiseRate()">+</button>
+            <input type="number" placeholder="0" name="rate" min="0" max="10" />
+            <button onclick="decreseRate()">-</button>
+        </div>
+    </div>
+    <footer>
+        <button onclick="onNextPage()">Next page</button>
+        <span style="color: white;" class="page">1/4</span>
+        <button onclick="onPrevPage()">Previous page</button>
+    </footer>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage-service.js"></script>
+    <script src="js/model-service.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>
